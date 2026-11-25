@@ -1,0 +1,110 @@
+@startuml BibliotecaApp
+
+title Sistema de Biblioteca - Diagrama de Classes
+
+skinparam classAttributeIconSize 0
+skinparam linetype ortho
+
+abstract class Pessoa {
+-nome: Char
+-sobrenome: Char
+-endereco: Char
+-telefone: Char
+-email: Email
++toString()
+}
+
+class Leitor {
+-matricula: Char
+-sexo: CharChoices
+-data_nascimento: Date
+-redes_sociais: ManyToMany[RedeSocial]
++toString()
+}
+
+class Bibliotecario {
+-salario: Decimal
+-cargo: Char
+-data_admissao: Date
+-turno: CharChoices
++toString()
+}
+
+class RedeSocial {
+-nome: Char
+-tipo_conteudo: Text
+-url: URL
+-ativa: Boolean
++toString()
+}
+
+class LeitorRedeSocial {
+-leitor: ForeignKey[Leitor]
+-rede_social: ForeignKey[RedeSocial]
+-usuario: Char
+-data_vinculo: Date
++toString()
+}
+
+class Genero {
+-nome: Char
+-descricao: Text
+-data_cadastro: DateTime
+-ativo: Boolean
++toString()
+}
+
+class Livro {
+-titulo: Char
+-autor: Char
+-isbn: Char
+-sinopse: Text
+-data_publicacao: Date
+-paginas: Integer
+-preco: Decimal
+-disponivel: Boolean
+-genero: ForeignKey[Genero]
++toString()
+}
+
+class Emprestimo {
+-data_emprestimo: DateTime
+-data_devolucao: Date
+-status: CharChoices
+-valor_total: Decimal
+-leitor: ForeignKey[Leitor]
+-bibliotecario: ForeignKey[Bibliotecario]
++toString()
+}
+
+class ItemEmprestimo {
+-quantidade: Integer
+-valor_diaria: Decimal
+-subtotal: Decimal
+-livro: ForeignKey[Livro]
+-emprestimo: ForeignKey[Emprestimo]
++toString()
+}
+
+class Recibo {
+-numero: Char
+-data_emissao: Date
+-observacoes: Text
+-emprestimo: OneToOne[Emprestimo]
++toString()
+}
+
+Leitor -up-|> Pessoa
+Bibliotecario -up-|> Pessoa
+
+Leitor "1" -- "0..*" LeitorRedeSocial : possui
+RedeSocial "1" -- "0..*" LeitorRedeSocial : vinculada a
+
+Genero "1" -- "0..*" Livro : classifica
+Leitor "1" -- "0..*" Emprestimo : realiza
+Bibliotecario "1" -- "0..*" Emprestimo : registra
+Emprestimo "1" *-- "1..*" ItemEmprestimo : contém
+Livro "1" -- "0..*" ItemEmprestimo : é emprestado em
+Emprestimo "1" -- "1" Recibo : gera
+
+@enduml
