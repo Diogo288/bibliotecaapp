@@ -1,3 +1,7 @@
-from django.shortcuts import render
+from rest_framework import viewsets
+from .models import Bibliotecario
+from .serializer import BibliotecarioSerializer
 
-# Create your views here.
+class BibliotecarioViewSet(viewsets.ModelViewSet):
+    queryset = Bibliotecario.objects.all()
+    serializer_class = BibliotecarioSerializer
