@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'generos.apps.GenerosConfig',
     'livros.apps.LivrosConfig',
+    'redessociais.apps.RedessociaisConfig',
 ]
 
 MIDDLEWARE = [
