@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'redessociais.apps.RedessociaisConfig',
     'pessoas.apps.PessoasConfig',
     'leitores.apps.LeitoresConfig',
+    'bibliotecarios.apps.BibliotecariosConfig',
 ]
 
 MIDDLEWARE = [

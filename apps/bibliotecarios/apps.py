@@ -1,0 +1,7 @@
+from django.apps import AppConfig
+
+
+class BibliotecariosConfig(AppConfig):
+    default_auto_field = 'django.db.models.BigAutoField'
+    name = 'bibliotecarios'
+    verbose_name = 'Bibliotecarios'
