@@ -1,3 +1,9 @@
-from django.shortcuts import render
+from rest_framework import viewsets
+from .models import RedeSocial
+from .serializer import RedeSocialSerializer
 
-# Create your views here.
+# Faz o CRUD de redes sociais: listar, criar, ver, editar e apagar
+
+class RedeSocialViewSet(viewsets.ModelViewSet):
+    queryset = RedeSocial.objects.all()
+    serializer_class = RedeSocialSerializer
