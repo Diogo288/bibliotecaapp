@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'livros.apps.LivrosConfig',
     'redessociais.apps.RedessociaisConfig',
     'pessoas.apps.PessoasConfig',
+    'leitores.apps.LeitoresConfig',
 ]
 
 MIDDLEWARE = [
