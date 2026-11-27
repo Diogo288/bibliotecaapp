@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'bibliotecarios.apps.BibliotecariosConfig',
     'emprestimos.apps.EmprestimosConfig',
     'itensemprestimo.apps.ItensemprestimoConfig',
+    'recibos.apps.RecibosConfig',
 ]
 
 MIDDLEWARE = [
