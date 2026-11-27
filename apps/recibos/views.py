@@ -1,3 +1,7 @@
-from django.shortcuts import render
+from rest_framework import viewsets
+from .models import Recibo
+from .serializer import ReciboSerializer
 
-# Create your views here.
+class ReciboViewSet(viewsets.ModelViewSet):
+    queryset = Recibo.objects.all()
+    serializer_class = ReciboSerializer
