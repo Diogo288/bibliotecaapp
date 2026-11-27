@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'leitores.apps.LeitoresConfig',
     'bibliotecarios.apps.BibliotecariosConfig',
     'emprestimos.apps.EmprestimosConfig',
+    'itensemprestimo.apps.ItensemprestimoConfig',
 ]
 
 MIDDLEWARE = [
