@@ -1,3 +1,7 @@
-from django.shortcuts import render
+from rest_framework import viewsets
+from .models import ItemEmprestimo
+from .serializer import ItemEmprestimoSerializer
 
-# Create your views here.
+class ItemEmprestimoViewSet(viewsets.ModelViewSet):
+    queryset = ItemEmprestimo.objects.all()
+    serializer_class = ItemEmprestimoSerializer
