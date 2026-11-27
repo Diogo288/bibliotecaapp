@@ -25,4 +25,5 @@ urlpatterns = [
     path('leitores/', include('leitores.urls', namespace='leitores')),
     path('bibliotecarios/', include('bibliotecarios.urls', namespace='bibliotecarios')),
     path('emprestimos/', include('emprestimos.urls', namespace='emprestimos')),
+    path('itensemprestimo/', include('itensemprestimo.urls', namespace='itensemprestimo')),
 ]
