@@ -1,3 +1,9 @@
-from django.shortcuts import render
+from rest_framework import viewsets
+from .models import Recibo
+from .serializer import ReciboSerializer
 
-# Create your views here.
+# Faz o CRUD de recibos: listar, criar, ver, editar e apagar
+
+class ReciboViewSet(viewsets.ModelViewSet):
+    queryset = Recibo.objects.all()
+    serializer_class = ReciboSerializer
